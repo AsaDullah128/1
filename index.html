@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 2px solid #f00; /* Red bottom border */
+            padding: 10px 20px;
+        }
+        .navbar img {
+            height: 50px; /* Adjust based on your logo size */
+            margin-right: 10px;
+        }
+        .navbar h1 {
+            font-size: 14px;
+            margin: 0;
+            color: orange; /* Color for 'University of' */
+            display: inline;
+        }
+        .navbar h1 span {
+            color: #004085; /* Color for 'Education' */
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            margin-left: auto; /* Aligns the menu items to the right */
+        }
+        .navbar ul li {
+            display: inline;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #007bff; /* Hover color */
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+        .hero .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .hero .overlay-text h2 {
+            font-size: 48px;
+            margin: 0;
+            padding: 10px;
+            color: #ffffff;
+        }
+        .hero .overlay-text p {
+            font-size: 18px;
+            margin: 0;
+            padding: 5px;
+            color: #ffffff;
+        }
+        .course-categories {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .course-categories h2 {
+            font-size: 28px;
+            color: #004085;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .category {
+            background-color: #f0f0f0; /* Grey background */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .category img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .category h3 {
+            font-size: 20px;
+            color: #004085;
+            margin: 10px 0 5px;
+        }
+        .category p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        .pricing-table {
+            text-align: center;
+            /* background-color: #f0f0f0; Grey background for the entire section */
+            padding: 20px 0;
+        }
+        .pricing-table h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            background-color: #f0f0f0; /* Grey background for the card */
+        }
+        .pricing-card h2 {
+            font-size: 20px;
+            margin-top: 0;
+        }
+        .price {
+            font-size: 24px;
+            color: #e67e22;
+        }
+        .duration {
+            font-size: 18px;
+            color: #e67e22;
+            margin: 10px 0;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .features li {
+            margin: 10px 0;
+        }
+        .subscribe-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .subscribe-btn:hover {
+            background-color: #003f7f;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 30px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .footer-column {
+            width: 30%;
+        }
+        .footer-column h3 {
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin: 10px 0;
+        }
+        .footer-column ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+        .contact-us {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .contact-us h3 {
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .contact-us form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-us form input,
+        .contact-us form textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .contact-us form textarea {
+            resize: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="imgs/Rectangle 1.png" alt="University Logo">
+        <h1 class="nav101">University of <span>  <br> Education</span></h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Event</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Staff</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <img src="imgs/Rectangle 2.png" alt="University Image">
+        <div class="overlay-text">
+            <h2>The Best Learning Institution</h2>
+            <h1>Welcome to Our University</h1>
+            <p>We believe there is nothing more important than education</p>
+        </div>
+    </div>
+    <div class="course-categories">
+        <h2>Course Categories</h2>
+        <div class="categories">
+            <div class="category">
+                <img src="imgs/image 1.png" alt="Business Icon">
+                <h3>Business</h3>
+                <p>Business Trends changing with latest courses are available with us.</p>
+            </div>
+            <div class="category">
+                <img src="imgs/image 2.png" alt="Accounting Icon">
+                <h3>Accounting</h3>
+                <p>Business Trends changing with latest courses are available with us.</p>
+            </div>
+            <div class="category">
+                <img src="imgs/image 3.png" alt="Science Icon">
+                <h3>Science</h3>
+                <p>Business Trends changing with latest courses are available with us.</p>
+            </div>
+            <div class="category">
+                <img src="imgs/image 4.png" alt="Health Icon">
+                <h3>Health</h3>
+                <p>Business Trends changing with latest courses are available with us.</p>
+            </div>
+            <div class="category">
+                <img src="imgs/image 5.png" alt="Food Icon">
+                <h3>Food</h3>
+                <p>Business Trends changing with latest courses are available with us.</p>
+            </div>
+            <div class="category">
+                <img src="imgs/image 6.png" alt="Arts Icon">
+                <h3>Arts</h3>
+                <p>Business Trends changing with latest courses are available with us.</p>
+            </div>
+        </div>
+    </div>
+    <div class="pricing-table">
+        <h1>Plans and Pricing</h1>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h2>Trials</h2>
+                <div class="price">Free</div>
+                <div class="duration">30 Days</div>
+                <ul class="features"><center>
+                    <li>30+ Audio Lectures</li>
+                    <li>50 one hour long CD's</li>
+                    <li>This is light version</li>
+                    <li>50 one hour long CD's</li>
+                </center>
+            </ul>             
+               <a href="#" class="subscribe-btn">SUBSCRIBE NOW</a>
+            </div>
+            <div class="pricing-card">
+                <h2>Silver</h2>
+                <div class="price">$149</div>
+                <div class="duration">30 Days</div>
+                <ul class="features"><center>
+                    <li>30+ Audio Lectures</li>
+                    <li>50 one hour long CD's</li>
+                    <li>This is light version</li>
+                    <li>50 one hour long CD's</li>
+                </center></ul>
+                <a href="#" class="subscribe-btn">SUBSCRIBE NOW</a>
+            </div>
+            <div class="pricing-card">
+                <h2>Gold</h2>
+                <div class="price">$249</div>
+                <div class="duration">30 Days</div>
+                <ul class="features"><center>
+                    <li>30+ Audio Lectures</li>
+                    <li>50 one hour long CD's</li>
+                    <li>This is light version</li>
+                    <li>50 one hour long CD's</li></center>
+                </ul>
+                <a href="#" class="subscribe-btn">SUBSCRIBE NOW</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Stories</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Our History</a></li>
+                    <li><a href="#">Our Staff</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="footer-column contact-us">
+                <h3>Contact Us</h3>
+                <form>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                    <textarea name="message" rows="4" placeholder="Message"></textarea>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            @ All Rights Reserved. Powered by Education
+        </div>
+    </div>
+</body>
+</html>
